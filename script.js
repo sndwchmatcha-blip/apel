@@ -233,9 +233,7 @@ async function playStory(){
             typingText.innerHTML="";
             typingText.classList.remove("fadeOut");
 
-        }
-
-        else{
+        }else{
 
             typingText.innerHTML="";
 
@@ -248,6 +246,20 @@ async function playStory(){
         }
 
     }
+
+    /* ===== ENDING ===== */
+
+    await new Promise(resolve=>setTimeout(resolve,3000));
+
+    fadeOutMusic();
+
+    fadeScreen();
+
+    setTimeout(()=>{
+
+        document.getElementById("ending").style.opacity="1";
+
+    },4500);
 
 }
 setTimeout(()=>{
@@ -288,27 +300,31 @@ document.addEventListener("touchstart",()=>{
 
 function fadeOutMusic(){
 
-    let volume = music.volume;
+    let volume = 1;
+
+    music.volume = 1;
 
     const fade = setInterval(()=>{
 
-        if(volume > 0.02){
+        volume -= 0.02;
 
-            volume -= 0.02;
-
-            music.volume = volume;
-
-        }else{
+        if(volume <= 0){
 
             music.pause();
+
+            music.currentTime = 21;
 
             music.volume = 1;
 
             clearInterval(fade);
 
+            return;
+
         }
 
-    },150);
+        music.volume = volume;
+
+    },120);
 
 }
 
