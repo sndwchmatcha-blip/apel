@@ -285,3 +285,29 @@ document.addEventListener("touchstart",()=>{
     }
 
 },{once:true});
+
+function fadeOutMusic(){
+
+    let volume = music.volume;
+
+    const fade = setInterval(()=>{
+
+        if(volume > 0.02){
+
+            volume -= 0.02;
+
+            music.volume = volume;
+
+        }else{
+
+            music.pause();
+
+            music.volume = 1;
+
+            clearInterval(fade);
+
+        }
+
+    },150);
+
+}
