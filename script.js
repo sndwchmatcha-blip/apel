@@ -311,3 +311,9 @@ function fadeOutMusic(){
     },150);
 
 }
+
+function fadeScreen(){
+
+    document.getElementById("fade").style.opacity="1";
+
+}
