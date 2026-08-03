@@ -65,7 +65,7 @@ value:"foto4.jpg"
 
 {
 type:"text",
-value:"selamat ulang tahun nama costum 🤍"
+value:"selamat ulang tahun anindita 🤍"
 },
 
 {
